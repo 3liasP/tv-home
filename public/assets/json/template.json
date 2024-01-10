@@ -1,80 +1,99 @@
-[
-    {
-        "name": "Netflix",
-        "url": "https://www.netflix.com",
-        "image": "netflix.png",
-        "color": "#E50914"
-    },
-    {
-        "name": "Hulu",
-        "url": "https://www.hulu.com",
-        "image": "hulu-logo.jpg",
-        "color": "#1DB954"
-    },
-    {
-        "name": "Disney+",
-        "url": "https://www.disneyplus.com",
-        "image": "disney-logo.jpg",
-        "color": "#0C1E3E"
-    },
-    {
-        "name": "HBO Max",
-        "url": "https://www.hbomax.com",
-        "image": "hbo-logo.jpg",
-        "color": "#000000"
-    },
-    {
-        "name": "Amazon Prime Video",
-        "url": "https://www.primevideo.com",
-        "image": "amazon-logo.jpg",
-        "color": "#232F3E"
-    },
-    {
-        "name": "Apple TV+",
-        "url": "https://www.apple.com/apple-tv-plus",
-        "image": "apple-logo.jpg",
-        "color": "#000000"
-    },
-    {
-        "name": "Peacock",
-        "url": "https://www.peacocktv.com",
-        "image": "peacock-logo.jpg",
-        "color": "#FF6D3A"
-    },
-    {
-        "name": "Paramount+",
-        "url": "https://www.paramountplus.com",
-        "image": "paramount-logo.jpg",
-        "color": "#004AAD"
-    },
-    {
-        "name": "Discovery+",
-        "url": "https://www.discoveryplus.com",
-        "image": "discovery-logo.jpg",
-        "color": "#FF0000"
-    },
-    {
-        "name": "Starz",
-        "url": "https://www.starz.com",
-        "image": "starz-logo.jpg",
-        "color": "#000000"
-    },
-    {
-        "name": "Showtime",
-        "url": "https://www.showtime.com",
-        "image": "showtime-logo.jpg",
-        "color": "#000000"
-    },
-    {
-        "name": "AMC+",
-        "url": "https://www.amcplus.com",
-        "image": "amc-logo.jpg",
-        "color": "#000000"
-    },
-    {
-        "name": "Sundance Now",
-        "url": "https://www.sundancenow.com",
-        "image": "sundance-logo.jpg",
-        "color": "#000000"
-    }
-]
+{
+    "Streaming Services": [
+        {
+            "name": "Netflix",
+            "url": "https://www.netflix.com",
+            "image": "netflix.png",
+            "color": "#E50914"
+        },
+        {
+            "name": "Hulu",
+            "url": "https://www.hulu.com",
+            "color": "#1DB954"
+        },
+        {
+            "name": "Disney+",
+            "url": "https://www.disneyplus.com",
+            "color": "#0C1E3E"
+        },
+        {
+            "name": "HBO Max",
+            "url": "https://www.hbomax.com",
+            "color": "#000000"
+        },
+        {
+            "name": "Amazon Prime Video",
+            "url": "https://www.primevideo.com",
+            "color": "#232F3E"
+        },
+        {
+            "name": "Apple TV+",
+            "url": "https://www.apple.com/apple-tv-plus",
+            "color": "#000000"
+        },
+        {
+            "name": "Peacock",
+            "url": "https://www.peacocktv.com",
+            "color": "#FF6D3A"
+        },
+        {
+            "name": "Paramount+",
+            "url": "https://www.paramountplus.com",
+            "color": "#004AAD"
+        },
+        {
+            "name": "Discovery+",
+            "url": "https://www.discoveryplus.com",
+            "color": "#FF0000"
+        },
+        {
+            "name": "Starz",
+            "url": "https://www.starz.com",
+            "color": "#000000"
+        },
+        {
+            "name": "Showtime",
+            "url": "https://www.showtime.com",
+            "color": "#000000"
+        },
+        {
+            "name": "AMC+",
+            "url": "https://www.amcplus.com",
+            "color": "#000000"
+        },
+        {
+            "name": "Sundance Now",
+            "url": "https://www.sundancenow.com",
+            "color": "#000000"
+        }
+    ],
+    "Media": [
+        {
+            "name": "YouTube",
+            "url": "https://www.youtube.com",
+            "color": "#FF0000"
+        },
+        {
+            "name": "Spotify",
+            "url": "https://www.spotify.com",
+            "color": "#1DB954"
+        },
+        {
+            "name": "Apple Music",
+            "url": "https://www.apple.com/apple-music",
+            "color": "#000000"
+        }
+    ],
+    "Sports": [
+        {
+            "name": "ESPN+",
+            "url": "https://www.espn.com/watch/espnplus",
+            "color": "#FF0000"
+        },
+        {
+            "name": "DAZN",
+            "url": "https://www.dazn.com",
+            "color": "#000000"
+        }
+    ]
+}
