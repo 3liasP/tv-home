@@ -17,6 +17,7 @@ build/
 # IDE and editor files
 .vscode/
 .idea/
+.prettierrc
 *.sublime-project
 *.sublime-workspace
 *.suo
