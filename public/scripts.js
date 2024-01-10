@@ -12,6 +12,7 @@ function createCards(links) {
     links.forEach(link => {
         const card = document.createElement('div');
         card.classList.add('card');
+        card.tabIndex = 0; // Make the card focusable
 
         // Set background color based on JSON data
         card.style.backgroundColor = link.color || getRandomColor();
@@ -33,8 +34,21 @@ function createCards(links) {
             window.open(link.url, '_blank');
         });
 
+        // Open the link in a new tab when the Enter key is pressed
+        card.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.keyCode === 13) {
+                window.open(link.url, '_blank');
+            }
+        });
+
         appContainer.appendChild(card);
     });
+
+    // Set the first card to be active
+    const firstCard = appContainer.querySelector('.card');
+    if (firstCard) {
+        firstCard.focus();
+    }
 }
 
 function getRandomColor() {
@@ -57,3 +71,38 @@ function tryLoadImage(card, imageUrl) {
         console.error(`Error loading image: ${imageUrl}`);
     };
 }
+
+function updateCurrentTime() {
+    const currentTimeElement = document.getElementById('current-time');
+    const now = new Date();
+
+    const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const timeOptions = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false };
+
+    const dateStr = now.toLocaleDateString(undefined, dateOptions);
+    const timeStr = now.toLocaleTimeString(undefined, timeOptions);
+
+    currentTimeElement.textContent = `It's ${dateStr} at ${timeStr}`;
+}
+
+window.addEventListener('keydown', function (event) {
+    const currentCard = document.activeElement;
+    if (currentCard.classList.contains('card')) {
+        let newCard;
+        if (event.key === 'ArrowRight' || event.keyCode === 39) {
+            newCard = currentCard.nextElementSibling;
+        } else if (event.key === 'ArrowLeft' || event.keyCode === 37) {
+            newCard = currentCard.previousElementSibling;
+        }
+
+        if (newCard && newCard.classList.contains('card')) {
+            newCard.focus();
+        }
+    }
+});
+
+// Update clock every second
+setInterval(updateCurrentTime, 1000);
+
+// Initial clock update
+updateCurrentTime();
