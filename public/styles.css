@@ -17,18 +17,23 @@ body {
 
 /* Add this to your existing styles.css */
 .title-container {
-    text-align: center;
+    text-align: left;
     padding: 20px;
 }
 
 .title-container h1 {
+    font-size: 3rem;
+    font-weight: lighter;
     margin: 0;
+}
+
+.search-bar {
+    margin-bottom: 20px;
 }
 
 #current-time {
     font-size: 1.2rem;
     margin-top: 5px;
-    color: #424206;
 }
 
 .app-container {
@@ -47,9 +52,9 @@ body {
 }
 
 .category-title {
-    font-size: 2em;
+    font-size: 1.2rem;
     color: #424206;
-    margin-bottom: 1em;
+    padding-bottom: 1em;
     text-align: left;
 }
 

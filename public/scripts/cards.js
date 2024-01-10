@@ -9,7 +9,8 @@ export const createCards = (categories) => {
         appContainer.appendChild(categoryContainer);
 
         // Create a title for the category
-        const categoryTitle = document.createElement('category-title');
+        const categoryTitle = document.createElement('div');
+        categoryTitle.classList.add('category-title');
         categoryTitle.textContent = categoryName;
         categoryContainer.appendChild(categoryTitle);
         // Create a new row for the category
