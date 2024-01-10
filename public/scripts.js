@@ -41,6 +41,11 @@ function createCards(links) {
             }
         });
 
+        // Set focus on the card when it is hovered over
+        card.addEventListener('mouseover', function () {
+            card.focus();
+        });
+
         appContainer.appendChild(card);
     });
 
