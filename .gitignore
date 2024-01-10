@@ -29,5 +29,11 @@ build/
 # Ignore everything in the assets directory
 public/assets/*
 
+# But don't ignore the assets/json directory
+!public/assets/json/
+
+# In the assets/json directory, ignore everything
+public/assets/json/*
+
 # But don't ignore the template_links.json file
-!public/assets/json/template_links.json
+!public/assets/json/template.json
