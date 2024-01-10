@@ -29,6 +29,15 @@ build/
 # Ignore everything in the assets directory
 public/assets/*
 
+# But don't ignore the assets/img directory
+!public/assets/img/
+
+# In the assets/img directory, ignore everything
+public/assets/img/*
+
+# But don't ignore the netflix.png file
+!public/assets/img/netflix.png
+
 # But don't ignore the assets/json directory
 !public/assets/json/
 
