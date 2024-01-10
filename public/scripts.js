@@ -10,6 +10,9 @@ function createCards(links) {
     const appContainer = document.getElementById('app-container');
 
     links.forEach(link => {
+        const cardContainer = document.createElement('div');
+        cardContainer.classList.add('card-container');
+
         const card = document.createElement('div');
         card.classList.add('card');
         card.tabIndex = 0; // Make the card focusable
@@ -18,13 +21,7 @@ function createCards(links) {
         card.style.backgroundColor = link.color || getRandomColor();
 
         // Try to load local image
-        tryLoadImage(card, link.image);
-
-        // Add website name if no image or loading image fails
-        if (!card.querySelector('img')) {
-            const websiteInitial = link.name.charAt(0).toUpperCase();
-            card.innerHTML = `<div class="website-initial">${websiteInitial}</div>`;
-        }
+        tryLoadImage(card, link);
 
         // Add website name as a tooltip
         card.title = link.name;
@@ -46,7 +43,15 @@ function createCards(links) {
             card.focus();
         });
 
-        appContainer.appendChild(card);
+        cardContainer.appendChild(card);
+
+        // Add website name to the card container
+        const nameDiv = document.createElement('div');
+        nameDiv.classList.add('card-name'); // Add a class for styling
+        nameDiv.textContent = link.name;
+        cardContainer.appendChild(nameDiv);
+
+        appContainer.appendChild(cardContainer);
     });
 
     // Set the first card to be active
@@ -62,9 +67,9 @@ function getRandomColor() {
 }
 
 
-function tryLoadImage(card, imageUrl) {
+function tryLoadImage(card, link) {
     const img = new Image();
-    img.src = imageUrl;
+    img.src = `../assets/img/${link.image}`;
 
     img.onload = function () {
         // Image loaded successfully, append it to the card
@@ -72,8 +77,10 @@ function tryLoadImage(card, imageUrl) {
     };
 
     img.onerror = function () {
-        // Image failed to load, handle the error
-        console.error(`Error loading image: ${imageUrl}`);
+        // Add website name if no image or loading image fails
+        const websiteInitial = link.name.charAt(0).toUpperCase();
+        card.innerHTML = `<div class="website-initial">${websiteInitial}</div>`;
+        console.error(`Error loading image: ${link.image}`);
     };
 }
 
@@ -91,17 +98,37 @@ function updateCurrentTime() {
 }
 
 window.addEventListener('keydown', function (event) {
-    const currentCard = document.activeElement;
-    if (currentCard.classList.contains('card')) {
+    let currentCardContainer = document.activeElement.parentElement;
+    if (!currentCardContainer || !currentCardContainer.classList.contains('card-container')) {
+        // If there is no active element or the active element is not a card container,
+        // set the first card container as the current card container
+        currentCardContainer = document.querySelector('.card-container');
+        if (currentCardContainer) {
+            currentCardContainer.querySelector('.card').focus();
+        }
+    } else if (currentCardContainer.classList.contains('card-container')) {
         let newCard;
-        if (event.key === 'ArrowRight' || event.keyCode === 39) {
-            newCard = currentCard.nextElementSibling;
-        } else if (event.key === 'ArrowLeft' || event.keyCode === 37) {
-            newCard = currentCard.previousElementSibling;
+        const cardContainers = Array.from(document.querySelectorAll('.card-container'));
+        const currentIndex = cardContainers.indexOf(currentCardContainer);
+
+        // Determine the number of cards in a row dynamically
+        let n = 1;
+        while (n < cardContainers.length && cardContainers[n].offsetTop === cardContainers[0].offsetTop) {
+            n++;
         }
 
-        if (newCard && newCard.classList.contains('card')) {
-            newCard.focus();
+        if (event.key === 'ArrowRight' || event.keyCode === 39) {
+            newCard = currentCardContainer.nextElementSibling;
+        } else if (event.key === 'ArrowLeft' || event.keyCode === 37) {
+            newCard = currentCardContainer.previousElementSibling;
+        } else if (event.key === 'ArrowDown' || event.keyCode === 40) {
+            newCard = cardContainers[currentIndex + n];
+        } else if (event.key === 'ArrowUp' || event.keyCode === 38) {
+            newCard = cardContainers[currentIndex - n];
+        }
+
+        if (newCard && newCard.classList.contains('card-container')) {
+            newCard.querySelector('.card').focus();
         }
     }
 });

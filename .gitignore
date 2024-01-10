@@ -25,3 +25,9 @@ build/
 *.njsproj
 *.sln
 *.swp
+
+# Ignore everything in the assets directory
+public/assets/*
+
+# But don't ignore the template_links.json file
+!public/assets/json/template_links.json
