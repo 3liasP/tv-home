@@ -1,15 +1,18 @@
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: 'Arial', sans-serif;
+    font-family: "Roboto", sans-serif;
     color: #424206;
     background-color: #e5e5f7;
     opacity: 0.8;
-    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #a4b07e 100px ), repeating-linear-gradient( #42420655, #424206 );
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #a4b07e 100px),
+        repeating-linear-gradient(#42420655, #424206);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
+    background-attachment: fixed;
 }
 
 /* Add this to your existing styles.css */
@@ -35,7 +38,32 @@ html, body {
     padding: 20px;
 }
 
+.category-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.category-title {
+    font-size: 2em;
+    color: #424206;
+    margin-bottom: 1em;
+    text-align: left;
+}
+
+.category-row {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    width: 100%;
+    overflow-x: scroll;
+    overflow: hidden;
+}
+
 .card-container {
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,7 +80,7 @@ html, body {
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s ease;
-    box-sizing: border-box; /* This includes the padding and border in the element's total width and height */
+    box-sizing: border-box;
 }
 
 .card-name {
@@ -66,6 +94,7 @@ html, body {
 
 .card:focus {
     transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     outline: none; /* Optional: remove the default outline on focus */
 }
 
