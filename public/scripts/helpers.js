@@ -35,3 +35,11 @@ export const updateCurrentTime = () => {
 
     currentTimeElement.textContent = `It's ${dateStr} at ${timeStr}`;
 }
+
+export const searchGoogle = () => {
+    const searchInput = document.getElementById('search-input');
+    const searchQuery = searchInput.value;
+    if (searchQuery) {
+        window.location.href = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+    }
+}
