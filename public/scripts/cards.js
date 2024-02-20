@@ -34,8 +34,9 @@ export const createCards = (categories) => {
             if (link.image) {
                 tryLoadImage(card, link);
             } else {
+                tryLoadImage(card, link);
                 // Add website initial instead
-                addInitial(card, link);
+                // addInitial(card, link);
             }
 
             // Add website name as a tooltip

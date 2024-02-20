@@ -13,8 +13,19 @@ export const tryLoadImage = (card, link) => {
     };
 
     img.onerror = function () {
-        // Image failed to load, add the website initial instead
-        addInitial(card, link);
+        // Image failed to load, try to load the favicon
+        const favicon = new Image();
+        favicon.src = `https://www.google.com/s2/favicons?sz=128&domain=${link.url}`;
+
+        favicon.onload = function () {
+            // Favicon loaded successfully, append it to the card
+            card.appendChild(favicon);
+        };
+
+        favicon.onerror = function () {
+            // Favicon failed to load, add the website initial instead
+            addInitial(card, link);
+        };
     };
 }
 
@@ -34,12 +45,4 @@ export const updateCurrentTime = () => {
     const timeStr = now.toLocaleTimeString(undefined, timeOptions);
 
     currentTimeElement.textContent = `It's ${dateStr} at ${timeStr}`;
-}
-
-export const searchGoogle = () => {
-    const searchInput = document.getElementById('search-input');
-    const searchQuery = searchInput.value;
-    if (searchQuery) {
-        window.location.href = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
-    }
 }

@@ -17,3 +17,4 @@ setInterval(updateCurrentTime, 1000);
 
 // Initial clock update
 updateCurrentTime();
+
