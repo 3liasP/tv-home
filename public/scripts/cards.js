@@ -34,9 +34,7 @@ export const createCards = (categories, USE_FAVICONS) => {
             if (link.image) {
                 tryLoadImage(card, link);
             } else {
-                console.log('No image found');
                 // If using Favicons, try to load the favicon
-                console.log(USE_FAVICONS);
                 USE_FAVICONS === "true" ? addFavicon(card, link) : addInitial(card, link);
             }
 

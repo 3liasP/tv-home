@@ -28,6 +28,7 @@ build/
 
 # Ignore everything in the assets directory
 public/assets/*
+!public/assets/bak/background.jpg
 
 # But don't ignore the assets/img directory
 !public/assets/img/
