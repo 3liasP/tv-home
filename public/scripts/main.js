@@ -3,11 +3,14 @@ import { updateCurrentTime } from './helpers.js';
 import { navigate } from './navigation.js';
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Fetch and load links from the external JSON file
-    fetch('../assets/json/links.json')
+    fetch('/env')
         .then(response => response.json())
-        .then(data => createCards(data))
-        .catch(error => console.error('Error fetching links:', error));
+        .then(env => {
+            fetch(`../assets/json/${env.JSON_FILE}`)
+            .then(response => response.json())
+            .then(data => createCards(data, env.USE_FAVICONS))
+            .catch(error => console.error('Error fetching links:', error));
+        });
 });
 
 navigate(window);

@@ -1,6 +1,6 @@
-import { addInitial, getRandomColor, tryLoadImage } from './helpers.js';
+import { addFavicon, addInitial, getRandomColor, tryLoadImage } from './helpers.js';
 
-export const createCards = (categories) => {
+export const createCards = (categories, USE_FAVICONS) => {
     const appContainer = document.getElementById('app-container');
 
     Object.entries(categories).forEach(([categoryName, links]) => {
@@ -34,9 +34,10 @@ export const createCards = (categories) => {
             if (link.image) {
                 tryLoadImage(card, link);
             } else {
-                tryLoadImage(card, link);
-                // Add website initial instead
-                // addInitial(card, link);
+                console.log('No image found');
+                // If using Favicons, try to load the favicon
+                console.log(USE_FAVICONS);
+                USE_FAVICONS === "true" ? addFavicon(card, link) : addInitial(card, link);
             }
 
             // Add website name as a tooltip

@@ -34,6 +34,12 @@ export const addInitial = (card, link) => {
     card.innerHTML = `<div class="website-initial">${websiteInitial}</div>`;
 }
 
+export const addFavicon = (card, link) => {
+    const favicon = new Image();
+    favicon.src = `https://www.google.com/s2/favicons?sz=128&domain=${link.url}`;
+    card.appendChild(favicon);
+}
+
 export const updateCurrentTime = () => {
     const currentTimeElement = document.getElementById('current-time');
     const now = new Date();
